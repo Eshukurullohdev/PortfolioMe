@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects - Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<nav class="bg-white shadow-md p-4 flex justify-between items-center">
+  <div class="text-xl font-bold">My Portfolio</div>
+  <ul class="hidden md:flex space-x-6 text-gray-700">
+    <li><a href="{% url 'index' %}" class="hover:text-blue-600">Home</a></li>
+    <li><a href="{% url 'projects' %}" class="hover:text-blue-600">Projects</a></li>
+    <li><a href="{% url 'services' %}" class="hover:text-blue-600">Services</a></li>
+    <li><a href="{% url 'about' %}" class="hover:text-blue-600">About</a></li>
+    <li><a href="{% url 'contact' %}" class="hover:text-blue-600">Contact</a></li>
+  </ul>
+  <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none text-2xl">&#9776;</button>
+</nav>
+
+<ul id="mobile-menu" class="hidden bg-white shadow-md p-4 space-y-2 md:hidden">
+  <li><a href="{% url 'index' %}" class="block hover:text-blue-600">Home</a></li>
+  <li><a href="{% url 'projects' %}" class="block hover:text-blue-600">Projects</a></li>
+  <li><a href="{% url 'services' %}" class="block hover:text-blue-600">Services</a></li>
+  <li><a href="{% url 'about' %}" class="block hover:text-blue-600">About</a></li>
+  <li><a href="{% url 'contact' %}" class="block hover:text-blue-600">Contact</a></li>
+</ul>
+
+<main class="container mx-auto px-6 py-12">
+  <h2 class="text-3xl font-bold mb-8 text-center">My Projects</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Project 1 -->
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <img src="https://via.placeholder.com/600x300" alt="E-commerce SPA" class="w-full h-48 object-cover" />
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-2">E-commerce SPA</h3>
+        <p class="text-gray-700 mb-4">A fully functional e-commerce single-page application.</p>
+        <div class="mb-4">
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Vue.js</span>
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Django REST</span>
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Tailwind CSS</span>
+        </div>
+        <a href="https://github.com/" class="text-blue-600 hover:underline mr-4">GitHub</a>
+        <a href="https://ithouse-1.onrender.com" class="text-blue-600 hover:underline">Project</a>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <img src="https://via.placeholder.com/600x300" alt="Blog Platform" class="w-full h-48 object-cover" />
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-2">Blog Platform</h3>
+        <p class="text-gray-700 mb-4">An API-based blog system built with Django REST and Vue.js.</p>
+        <div class="mb-4">
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Vue.js</span>
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Django REST</span>
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Tailwind CSS</span>
+        </div>
+       <a href="https://github.com/" class="text-blue-600 hover:underline mr-4">GitHub</a>
+        <a href="https://ithouse-1.onrender.com" class="text-blue-600 hover:underline">Project</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+</script>
+
+</body>
+</html>
