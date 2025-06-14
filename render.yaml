@@ -10,7 +10,7 @@ services:
 
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: gunicorn portfolio_project.settings
+        value: portfolio_project.settings
       - key: SECRET_KEY
         value: django-insecure-...
       - key: DEBUG
