@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About Me - Portfolio</title>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-800">
+<html lang="en" class="scroll-smooth">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
 <nav class="bg-white shadow-md p-4 flex justify-between items-center">
   <div class="text-xl font-bold">My Portfolio</div>
-   <ul class="hidden md:flex space-x-6 text-gray-700">
+  <ul class="hidden md:flex space-x-6 text-gray-700">
     <li><a href="{% url 'index' %}" class="hover:text-blue-600">Home</a></li>
     <li><a href="{% url 'projects' %}" class="hover:text-blue-600">Projects</a></li>
     <li><a href="{% url 'services' %}" class="hover:text-blue-600">Services</a></li>
@@ -22,4 +26,78 @@
 
 <ul id="mobile-menu" class="hidden bg-white shadow-md p-4 space-y-2 md:hidden">
   <li><a href="{% url 'index' %}" class="block hover:text-blue-600">Home</a></li>
-  <li><a href="{% url 'projects' %}" class="block hover:text-blue-600">Projects</a
+  <li><a href="{% url 'projects' %}" class="block hover:text-blue-600">Projects</a></li>
+  <li><a href="{% url 'services' %}" class="block hover:text-blue-600">Services</a></li>
+  <li><a href="{% url 'about' %}" class="block hover:text-blue-600">About</a></li>
+  <li><a href="{% url 'contact' %}" class="block hover:text-blue-600">Contact</a></li>
+</ul>
+
+  <!-- Main content -->
+  <main class="container mx-auto px-4 py-12">
+
+    <!-- Intro -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Who am I?</h2>
+      <p class="text-lg leading-relaxed">
+        I am a passionate full-stack developer with strong experience in building modern web applications.
+        I specialize in developing high-performance, scalable, and secure applications using the latest technologies.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">My Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow p-4 text-center">
+          <p class="font-semibold">HTML / CSS</p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 text-center">
+          <p class="font-semibold">JavaScript / Vue.js</p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 text-center">
+          <p class="font-semibold">Python / Django</p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 text-center">
+          <p class="font-semibold">Django REST API</p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 text-center">
+          <p class="font-semibold">PostgreSQL</p>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 text-center">
+          <p class="font-semibold">Tailwind CSS</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">My Goal</h2>
+      <p class="text-lg leading-relaxed">
+        My goal is to help clients build modern and scalable web solutions.
+        I always try to write clean, maintainable, and efficient code while delivering great user experiences.
+      </p>
+    </section>
+
+    <!-- Contact Info -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+      <p class="text-lg">Email: se092798@gmail.com</p>
+      <p class="text-lg">Phone: +998331443626</p>
+    </section>
+
+      {% load static %}
+<a href="{% static 'img/Shukurulloh_Ergashev_Resume_EN (1).pdf' %}" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
+    View My Resume (PDF)
+</a>
+
+  </main>
+
+  <!-- Footer -->
+
+ <script>
+      const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+  </script>
+</body>
+</html>

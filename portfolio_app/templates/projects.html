@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Projects - Portfolio</title>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-800">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Blog</title>
 
-<nav class="bg-white shadow-md p-4 flex justify-between items-center">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+ <nav class="bg-blue-500 text-white shadow-md p-4 flex justify-between items-center">
   <div class="text-xl font-bold">My Portfolio</div>
-  <ul class="hidden md:flex space-x-6 text-gray-700">
+   <ul class="hidden md:flex space-x-6 text-white">
     <li><a href="{% url 'index' %}" class="hover:text-blue-600">Home</a></li>
     <li><a href="{% url 'projects' %}" class="hover:text-blue-600">Projects</a></li>
     <li><a href="{% url 'services' %}" class="hover:text-blue-600">Services</a></li>
@@ -28,49 +31,60 @@
   <li><a href="{% url 'contact' %}" class="block hover:text-blue-600">Contact</a></li>
 </ul>
 
-<main class="container mx-auto px-6 py-12">
-  <h2 class="text-3xl font-bold mb-8 text-center">My Projects</h2>
+  <!-- Blog posts -->
+  <main class="container mx-auto px-4 py-12 space-y-8">
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <!-- Project 1 -->
-    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-      <img src="https://via.placeholder.com/600x300" alt="E-commerce SPA" class="w-full h-48 object-cover" />
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2">E-commerce SPA</h3>
-        <p class="text-gray-700 mb-4">A fully functional e-commerce single-page application.</p>
-        <div class="mb-4">
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Vue.js</span>
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Django REST</span>
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Tailwind CSS</span>
-        </div>
-        <a href="https://github.com/" class="text-blue-600 hover:underline mr-4">GitHub</a>
-        <a href="https://ithouse-1.onrender.com" class="text-blue-600 hover:underline">Project</a>
-      </div>
+    <!-- Post 1 -->
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+      <h2 class="text-2xl font-bold mb-2">How I Became a Full-stack Developer</h2>
+      <p class="text-gray-600 mb-4">
+        In this post, I share my journey on how I mastered HTML, CSS, JavaScript, Vue.js, Python, Django, REST API, PostgreSQL, and Tailwind CSS to become a professional full-stack developer.
+      </p>
+         <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline">Git hub</a>
+
     </div>
 
-    <!-- Project 2 -->
-    <div class="bg-white rounded-lg shadow-md overflow-hidden">
-      <img src="https://via.placeholder.com/600x300" alt="Blog Platform" class="w-full h-48 object-cover" />
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2">Blog Platform</h3>
-        <p class="text-gray-700 mb-4">An API-based blog system built with Django REST and Vue.js.</p>
-        <div class="mb-4">
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Vue.js</span>
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Django REST</span>
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Tailwind CSS</span>
-        </div>
-       <a href="https://github.com/" class="text-blue-600 hover:underline mr-4">GitHub</a>
-        <a href="https://ithouse-1.onrender.com" class="text-blue-600 hover:underline">Project</a>
-      </div>
-    </div>
-  </div>
-</main>
+    <!-- Post 2 -->
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+      <h2 class="text-2xl font-bold mb-2">Building REST APIs with Django</h2>
+      <p class="text-gray-600 mb-4">
+        Django REST Framework makes building APIs very easy. In this article, I explain step by step how to create scalable and secure APIs using Django and DRF.
+      </p>
+      <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline">Git hub</a>
 
-<script>
-  const btn = document.getElementById('menu-btn');
+    </div>
+
+    <!-- Post 3 -->
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+      <h2 class="text-2xl font-bold mb-2">Working with PostgreSQL Databases</h2>
+      <p class="text-gray-600 mb-4">
+        PostgreSQL is one of the most powerful relational database systems. Here I explain how to connect, design and optimize PostgreSQL databases for web applications.
+      </p>
+      <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline">Git hub</a>
+    </div>
+
+    <!-- Post 4 -->
+    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+      <h2 class="text-2xl font-bold mb-2">Modern Web Design with Tailwind CSS</h2>
+      <p class="text-gray-600 mb-4">
+        Tailwind CSS allows developers to create beautiful, responsive designs quickly. I discuss some of my favorite Tailwind components and design patterns.
+      </p>
+           <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline">Git hub</a>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-200 text-center py-4 text-gray-600">
+    &copy; 2025 Your Shukurulloh. All rights reserved.
+  </footer>
+
+
+  <script>
+      const btn = document.getElementById('menu-btn');
   const menu = document.getElementById('mobile-menu');
   btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-</script>
-
+  </script>
 </body>
 </html>
