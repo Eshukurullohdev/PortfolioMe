@@ -3,3 +3,4 @@ gunicorn                 # Render.com uchun kerak
 whitenoise               # static fayllarni xizmat qilish
 psycopg2-binary          # PostgreSQL bilan ishlash (Render default db)
 python-decouple          # .env orqali sozlamalarni ajratish uchun
+django-crispy-forms>=1.14.0
