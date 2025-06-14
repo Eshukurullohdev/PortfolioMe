@@ -6,8 +6,7 @@ services:
       pip install -r requirements.txt
       python manage.py migrate
       python manage.py collectstatic --no-input
-      gunicorn portfolio_project.wsgi:application
-
+    startCommand: gunicorn portfolio_project.wsgi:application
 
     envVars:
       - key: DJANGO_SETTINGS_MODULE
