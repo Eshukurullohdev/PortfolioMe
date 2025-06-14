@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: portfoli_app
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py migrate
+      python manage.py collectstatic --no-input
+    startCommand: gunicorn portfolio_project.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: gunicorn portfolio_project.settings
+      - key: SECRET_KEY
+        value: django-insecure-...
+      - key: DEBUG
+        value: 'False'
