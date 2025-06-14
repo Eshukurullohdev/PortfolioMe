@@ -29,6 +29,7 @@ fastapi==0.115.6
 filelock==3.13.4
 frozenlist==1.5.0
 greenlet==3.1.1
+gunicorn==23.0.0
 h11==0.14.0
 httpcore==1.0.7
 httpx==0.28.1
@@ -43,6 +44,7 @@ multidict==6.1.0
 mypy==1.13.0
 mypy-extensions==1.0.0
 optional-django==0.3.0
+packaging==25.0
 pillow==10.3.0
 platformdirs==4.2.0
 prompt_toolkit==3.0.51
@@ -76,13 +78,8 @@ uvicorn==0.32.1
 vine==5.1.0
 virtualenv==20.25.3
 wcwidth==0.2.13
+whitenoise==6.9.0
 wikipedia==1.4.0
 yarl==1.18.3
 yt-dlp==2024.12.23
 zipp==3.17.0
-asgiref==3.6.0
-Django==4.2.3
-gunicorn==20.1.0
-whitenoise==6.5.0
-gunicorn
-whitenoise
