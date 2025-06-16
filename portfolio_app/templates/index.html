@@ -6,9 +6,9 @@
 <title>Home - Portfolio</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-black text-white">
 
-<nav class="bg-white shadow-md p-4 flex justify-between items-center">
+<nav class="bg-black shadow-md p-4 flex justify-between items-center">
   <div class="text-xl font-bold">My Portfolio</div>
   <ul class="hidden md:flex space-x-6 text-gray-700">
     <li><a href="{% url 'index' %}" class="hover:text-blue-600">Home</a></li>
@@ -17,10 +17,10 @@
     <li><a href="{% url 'about' %}" class="hover:text-blue-600">About</a></li>
     <li><a href="{% url 'contact' %}" class="hover:text-blue-600">Contact</a></li>
   </ul>
-  <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none text-2xl">&#9776;</button>
+  <button id="menu-btn" class="md:hidden text-white focus:outline-none text-2xl">&#9776;</button>
 </nav>
 
-<ul id="mobile-menu" class="hidden bg-white shadow-md p-4 space-y-2 md:hidden">
+<ul id="mobile-menu" class="hidden bg-black text-white shadow-md p-4 space-y-2 md:hidden">
   <li><a href="{% url 'index' %}" class="block hover:text-blue-600">Home</a></li>
   <li><a href="{% url 'projects' %}" class="block hover:text-blue-600">Projects</a></li>
   <li><a href="{% url 'services' %}" class="block hover:text-blue-600">Services</a></li>
@@ -28,9 +28,9 @@
   <li><a href="{% url 'contact' %}" class="block hover:text-blue-600">Contact</a></li>
 </ul>
 
-<main class="container mx-auto px-6 py-12 text-center">
+<main class="container mx-auto px-6 py-[8rem] text-center">
   <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Hello! I am Shukurulloh</h1>
-  <p class="text-lg md:text-xl text-gray-600 mb-8">I specialize in Vue.js, Django REST API, PostgreSQL, and Tailwind CSS.</p>
+  <p class="text-lg md:text-xl text-white mb-8">I specialize in Vue.js, Django REST API, PostgreSQL, and Tailwind CSS.</p>
   <a href="{% url 'projects' %}" class="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">View My Projects</a>
 </main>
 

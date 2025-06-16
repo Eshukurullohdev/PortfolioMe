@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Blog</title>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-black text-white">
 
   <!-- Header -->
- <nav class="bg-blue-500 text-white shadow-md p-4 flex justify-between items-center">
-  <div class="text-xl font-bold">My Portfolio</div>
+ <nav class="bg-black text-white shadow-md p-4 flex justify-between items-center">
+  <div class="text-xl  font-bold">My Portfolio</div>
    <ul class="hidden md:flex space-x-6 text-white">
     <li><a href="{% url 'index' %}" class="hover:text-blue-600">Home</a></li>
     <li><a href="{% url 'projects' %}" class="hover:text-blue-600">Projects</a></li>
@@ -20,10 +20,10 @@
     <li><a href="{% url 'about' %}" class="hover:text-blue-600">About</a></li>
     <li><a href="{% url 'contact' %}" class="hover:text-blue-600">Contact</a></li>
   </ul>
-  <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none text-2xl">&#9776;</button>
+  <button id="menu-btn" class="md:hidden text-blue-600 focus:outline-none text-2xl">&#9776;</button>
 </nav>
 
-<ul id="mobile-menu" class="hidden bg-white shadow-md p-4 space-y-2 md:hidden">
+<ul id="mobile-menu" class="hidden bg-black shadow-md p-4 space-y-2 md:hidden">
   <li><a href="{% url 'index' %}" class="block hover:text-blue-600">Home</a></li>
   <li><a href="{% url 'projects' %}" class="block hover:text-blue-600">Projects</a></li>
   <li><a href="{% url 'services' %}" class="block hover:text-blue-600">Services</a></li>
@@ -35,41 +35,41 @@
   <main class="container mx-auto px-4 py-12 space-y-8">
 
     <!-- Post 1 -->
-    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+    <div style="border: 1px solid blue;" class="bg-black p-6 rounded-lg shadow hover:shadow-lg transition">
       <h2 class="text-2xl font-bold mb-2">How I Became a Full-stack Developer</h2>
-      <p class="text-gray-600 mb-4">
+      <p class="text-white mb-4">
         In this post, I share my journey on how I mastered HTML, CSS, JavaScript, Vue.js, Python, Django, REST API, PostgreSQL, and Tailwind CSS to become a professional full-stack developer.
       </p>
-         <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline">Git hub</a>
+         <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline"><i class="fa-brands fa-github"></i> Git hub</a>
 
     </div>
 
     <!-- Post 2 -->
-    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+    <div style="border: 1px solid blue;" class="bg-black p-6 rounded-lg shadow hover:shadow-lg transition">
       <h2 class="text-2xl font-bold mb-2">Building REST APIs with Django</h2>
-      <p class="text-gray-600 mb-4">
+      <p class="text-white mb-4">
         Django REST Framework makes building APIs very easy. In this article, I explain step by step how to create scalable and secure APIs using Django and DRF.
       </p>
-      <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline">Git hub</a>
+      <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline"><i class="fa-brands fa-github"></i> Git hub</a>
 
     </div>
 
     <!-- Post 3 -->
-    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+    <div style="border: 1px solid blue;" class="bg-black p-6 rounded-lg shadow hover:shadow-lg transition">
       <h2 class="text-2xl font-bold mb-2">Working with PostgreSQL Databases</h2>
-      <p class="text-gray-600 mb-4">
+      <p class="text-white mb-4">
         PostgreSQL is one of the most powerful relational database systems. Here I explain how to connect, design and optimize PostgreSQL databases for web applications.
       </p>
-      <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline">Git hub</a>
+      <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline"><i class="fa-brands fa-github"></i> Git hub</a>
     </div>
 
     <!-- Post 4 -->
-    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+    <div style="border: 1px solid blue;" class="bg-black p-6 rounded-lg shadow hover:shadow-lg transition">
       <h2 class="text-2xl font-bold mb-2">Modern Web Design with Tailwind CSS</h2>
-      <p class="text-gray-600 mb-4">
+      <p class="text-white mb-4">
         Tailwind CSS allows developers to create beautiful, responsive designs quickly. I discuss some of my favorite Tailwind components and design patterns.
       </p>
-           <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline">Git hub</a>
+           <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline"><i class="fa-brands fa-github"></i> Git hub</a>
 
     </div>
 

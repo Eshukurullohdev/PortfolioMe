@@ -6,21 +6,21 @@
 <title>Services - Portfolio</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-black text-white">
 
-<nav class="bg-white shadow-md p-4 flex justify-between items-center">
+<nav class="bg-black shadow-md p-4 flex justify-between items-center">
   <div class="text-xl font-bold">My Portfolio</div>
-   <ul class="hidden md:flex space-x-6 text-gray-700">
+   <ul class="hidden md:flex space-x-6 text-white">
     <li><a href="{% url 'index' %}" class="hover:text-blue-600">Home</a></li>
     <li><a href="{% url 'projects' %}" class="hover:text-blue-600">Projects</a></li>
     <li><a href="{% url 'services' %}" class="hover:text-blue-600">Services</a></li>
     <li><a href="{% url 'about' %}" class="hover:text-blue-600">About</a></li>
     <li><a href="{% url 'contact' %}" class="hover:text-blue-600">Contact</a></li>
   </ul>
-  <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none text-2xl">&#9776;</button>
+  <button id="menu-btn" class="md:hidden text-blue-600 focus:outline-none text-2xl">&#9776;</button>
 </nav>
 
-<ul id="mobile-menu" class="hidden bg-white shadow-md p-4 space-y-2 md:hidden">
+<ul id="mobile-menu" class="hidden bg-black shadow-md p-4 space-y-2 md:hidden">
   <li><a href="{% url 'index' %}" class="block hover:text-blue-600">Home</a></li>
   <li><a href="{% url 'projects' %}" class="block hover:text-blue-600">Projects</a></li>
   <li><a href="{% url 'services' %}" class="block hover:text-blue-600">Services</a></li>
@@ -30,7 +30,7 @@
 
 <main class="container mx-auto px-6 py-12">
   <h2 class="text-3xl font-bold mb-8 text-center">Services I Offer</h2>
-  <ul class="max-w-xl mx-auto space-y-4 text-gray-700 text-lg">
+  <ul class="max-w-xl mx-auto space-y-4 text-white text-lg">
     <li>Frontend and Backend Development</li>
     <li>REST API Creation</li>
     <li>Database Design and Optimization</li>
