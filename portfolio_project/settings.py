@@ -17,6 +17,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "ns1295kd.up.railway.app",
     "www.shukurullohdev.uz",
+    "shukurullohdev.uz",
 ]
 
 
@@ -32,7 +33,10 @@ INSTALLED_APPS = [
     'portfolio_app',
     'crispy_forms',
 ]
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://www.shukurullohdev.uz",
+    "https://shukurullohdev.uz",
+]
 MIDDLEWARE = [
 
     'django.middleware.security.SecurityMiddleware',
