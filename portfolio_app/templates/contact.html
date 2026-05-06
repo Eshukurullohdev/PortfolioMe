@@ -1,124 +1,164 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Us - Tailwind & EmailJS</title>
-  
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact | Shukurulloh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #05070a; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .input-glass {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .input-glass:focus {
+            border-color: #1656ad;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 15px rgba(22, 86, 173, 0.2);
+        }
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      emailjs.init('rjoht27d-yQLmtszb');
-    });
-  </script>
+        .glass-nav {
+            background: rgba(5, 7, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 50% 0%, rgba(22, 86, 173, 0.15) 0%, transparent 50%);
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            emailjs.init('rjoht27d-yQLmtszb');
+        });
+    </script>
 </head>
 
-<body class="bg-black min-h-screen flex flex-col items-center justify-center p-4">
-  <nav class="bg-black shadow-md  text-white p-4 w-full flex justify-between items-center">
-  <div class="text-xl font-bold">My Portfolio</div>
-  <ul class="hidden md:flex space-x-6 text-gray-700">
-    <li><a href="{% url 'index' %}" class="hover:text-blue-600">Home</a></li>
-    <li><a href="{% url 'projects' %}" class="hover:text-blue-600">Projects</a></li>
-    <li><a href="{% url 'services' %}" class="hover:text-blue-600">Services</a></li>
-    <li><a href="{% url 'about' %}" class="hover:text-blue-600">About</a></li>
-    <li><a href="{% url 'contact' %}" class="hover:text-blue-600">Contact</a></li>
-  </ul>
-  <button id="menu-btn" class="md:hidden text-blue-600 focus:outline-none text-2xl">&#9776;</button>
+<body class="text-gray-200 antialiased overflow-x-hidden hero-glow min-h-screen">
+
+<!-- Navigatsiya (Asosiy sahifa bilan bir xil stil) -->
+<nav class="fixed top-0 w-full glass-nav z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="text-2xl font-extrabold tracking-tighter text-white">
+            S<span class="text-[#F37021]">.</span>Portfolio
+        </div>
+        <ul class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+            <li><a href="{% url 'index' %}" class="hover:text-[#F37021] transition-colors">HOME</a></li>
+            <li><a href="{% url 'projects' %}" class="hover:text-[#F37021] transition-colors">PROJECTS</a></li>
+            <li><a href="{% url 'services' %}" class="hover:text-[#F37021] transition-colors">SERVICES</a></li>
+            <li><a href="{% url 'about' %}" class="hover:text-[#F37021] transition-colors">ABOUT</a></li>
+            <li><a href="{% url 'contact' %}" class="text-[#F37021]">CONTACT</a></li>
+        </ul>
+        <button id="menu-btn" class="md:hidden text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    </div>
 </nav>
 
-<ul id="mobile-menu" class="hidden bg-black shadow-md text-white p-4 space-y-2 md:hidden">
-  <li><a href="{% url 'index' %}" class="block hover:text-blue-600">Home</a></li>
-  <li><a href="{% url 'projects' %}" class="block hover:text-blue-600">Projects</a></li>
-  <li><a href="{% url 'services' %}" class="block hover:text-blue-600">Services</a></li>
-  <li><a href="{% url 'about' %}" class="block hover:text-blue-600">About</a></li>
-  <li><a href="{% url 'contact' %}" class="block hover:text-blue-600">Contact</a></li>
-</ul>
-  <div class="bg-black border border-blue-600 rounded-lg shadow-lg max-w-md w-full p-8 mt-6">
-    <h1 class="text-3xl mb-2">Malumotlarizni jonating bog'lanish uchun</h1> 
-    <h1 class="text-3xl font-bold mb-6 text-white text-center">Contact Us</h1>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 text-2xl">
+    <a href="{% url 'index' %}" class="hover:text-[#F37021]">Home</a>
+    <a href="{% url 'projects' %}" class="hover:text-[#F37021]">Projects</a>
+    <a href="{% url 'contact' %}" class="text-[#F37021]">Contact</a>
+</div>
 
-    <form id="contact-form" class="space-y-6">
-      <div>
-        <label for="name" class="block text-white mb-2 font-medium">Your Name</label>
-        <input
-          type="text" name="name" id="name" required
-          class="w-full px-4 py-2 border border-blue-600 bg-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="John Doe"
-        />
-      </div>
+<main class="pt-32 pb-20 px-6 flex items-center justify-center">
+    <div class="max-w-xl w-full animate__animated animate__fadeIn">
+        <div class="text-center mb-10">
+            <h2 class="text-[#F37021] font-bold tracking-widest text-xs uppercase mb-2">Bog'lanish</h2>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Xabar Yo'llang</h1>
+            <p class="text-gray-400">Loyiha bo'yicha taklifingiz bormi? Yoki shunchaki salom bermoqchimisiz? Men doim muloqotga tayyorman.</p>
+        </div>
 
-      <div>
-        <label for="email" class="block text-white mb-2 font-medium">Your Email</label>
-        <input
-          type="email" name="email" id="email" required
-          class="w-full px-4 py-2 border border-blue-600 bg-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="john@example.com"
-        />
-      </div>
+        <div class="glass-card rounded-3xl p-8 md:p-10 shadow-2xl">
+            <form id="contact-form" class="space-y-5">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2 ml-1">To'liq ismingiz</label>
+                    <input type="text" name="name" required class="input-glass w-full px-5 py-4 rounded-xl text-white outline-none" placeholder="John Doe">
+                </div>
 
-      <div>
-        <label for="message" class="block text-white mb-2 font-medium">Your Message</label>
-        <textarea
-          name="message" id="message" rows="5" required
-          class="w-full px-4 py-2 border border-blue-600 bg-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-          placeholder="Write your message here..."
-        ></textarea>
-      </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2 ml-1">Email manzilingiz</label>
+                    <input type="email" name="email" required class="input-glass w-full px-5 py-4 rounded-xl text-white outline-none" placeholder="john@example.com">
+                </div>
 
-      <button
-        type="submit"
-        class="w-full border border-blue-600 bg-black text-white font-semibold py-3 rounded-md hover:bg-blue-700 transition-colors"
-      >
-        Send Message
-      </button>
-    </form>
-  </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2 ml-1">Xabaringiz</label>
+                    <textarea name="message" rows="4" required class="input-glass w-full px-5 py-4 rounded-xl text-white outline-none resize-none" placeholder="Loyiha haqida batafsil..."></textarea>
+                </div>
 
-  <!-- Modal -->
-  <div id="modal" class="fixed top-0 left-0 right-0 mx-auto max-w-sm bg-green-500 text-white rounded-b-md px-6 py-4 shadow-lg transform -translate-y-full transition-transform duration-300 z-50">
-    <p id="modal-message" class="text-center font-semibold"></p>
-  </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-[#F37021] to-[#d45d10] text-white font-bold py-4 rounded-xl shadow-lg shadow-orange-900/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 mt-4">
+                    Xabarni Yuborish
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
 
-  <script>
+<!-- Notification Modal -->
+<div id="modal" class="fixed top-10 left-1/2 -translate-x-1/2 z-[100] transform -translate-y-32 transition-all duration-500 ease-out">
+    <div id="modal-content" class="px-8 py-4 rounded-full shadow-2xl flex items-center space-x-3">
+        <span id="modal-icon"></span>
+        <p id="modal-message" class="font-bold"></p>
+    </div>
+</div>
+
+<script>
     const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
     const modalMessage = document.getElementById('modal-message');
 
-    function showModal(message, success = true) {
-      modalMessage.textContent = message;
-      modal.classList.remove('-translate-y-full');
-      modal.classList.add('translate-y-0');
-      modal.style.backgroundColor = success ? '#16a34a' /* green-600 */ : '#dc2626' /* red-600 */;
-
-      // 3 soniyadan keyin modalni yopish
-      setTimeout(() => {
-        modal.classList.remove('translate-y-0');
-        modal.classList.add('-translate-y-full');
-      }, 3000);
+    function showModal(msg, isSuccess) {
+        modalMessage.textContent = msg;
+        modalContent.style.backgroundColor = isSuccess ? '#16a34a' : '#dc2626';
+        modal.classList.remove('-translate-y-32');
+        modal.classList.add('translate-y-0');
+        
+        setTimeout(() => {
+            modal.classList.remove('translate-y-0');
+            modal.classList.add('-translate-y-32');
+        }, 4000);
     }
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-      event.preventDefault();
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        btn.disabled = true;
+        btn.innerText = 'Yuborilmoqda...';
 
-      emailjs.sendForm('service_3mj2vye', 'template_4mlyhfa', this)
-        .then(function() {
-          showModal('Message sent successfully!', true);
-          document.getElementById('contact-form').reset();
-        }, function(error) {
-          showModal('Failed to send message. Please try again later.', false);
-          console.error('EmailJS error:', error);
-        });
+        emailjs.sendForm('service_3mj2vye', 'template_4mlyhfa', this)
+            .then(() => {
+                showModal('Xabaringiz muvaffaqiyatli yetkazildi!', true);
+                this.reset();
+            })
+            .catch((err) => {
+                showModal('Xatolik yuz berdi. Qaytadan urunib ko\'ring.', false);
+                console.error(err);
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerText = 'Xabarni Yuborish';
+            });
     });
-    
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  btn.addEventListener('click', () => menu.classList.toggle('hidden'));
 
-  </script>
+    // Mobile menu logic
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    mobileMenu.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+</script>
 
 </body>
 </html>

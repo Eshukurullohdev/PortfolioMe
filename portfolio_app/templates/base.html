@@ -1,39 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% block title %}Portfolio{% endblock %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <title>{% block title %}Shukurulloh | Portfolio{% endblock %}</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- EmailJS & Animations -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #05070a;
+            color: #e5e7eb;
+        }
 
+        /* Navigatsiya uchun maxsus effekt */
+        .glass-header {
+            background: rgba(5, 7, 10, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Sahifa fonidagi nurlanish */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% -20%, #1656ad33 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .nav-link-custom {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link-custom::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #F37021;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link-custom:hover::after {
+            width: 100%;
+        }
+    </style>
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-  <div class="container">
-    <a class="navbar-brand" href="{% url 'index' %}">My Portfolio</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-      </ul>
+<body class="antialiased">
+
+    <!-- Orqa fon nuri -->
+    <div class="bg-glow"></div>
+
+    <!-- Navigatsiya paneli -->
+    <header class="fixed top-0 w-full glass-header z-[100]">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="{% url 'index' %}" class="text-2xl font-extrabold tracking-tighter text-white">
+                S<span class="text-[#F37021]">.</span>Portfolio
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-10 text-[13px] font-bold tracking-widest uppercase">
+                <a href="{% url 'index' %}" class="nav-link-custom hover:text-white transition">Home</a>
+                <a href="{% url 'projects' %}" class="nav-link-custom hover:text-white transition">Projects</a>
+                <a href="{% url 'services' %}" class="nav-link-custom hover:text-white transition">Services</a>
+                <a href="{% url 'about' %}" class="nav-link-custom hover:text-white transition">About</a>
+                <a href="{% url 'contact' %}" class="px-6 py-2.5 border border-[#F37021] text-[#F37021] rounded-full hover:bg-[#F37021] hover:text-white transition-all duration-300">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/95 z-[90] hidden flex-col items-center justify-center space-y-8 text-2xl font-bold animate__animated animate__fadeIn">
+        <a href="{% url 'index' %}" class="hover:text-[#F37021]">Home</a>
+        <a href="{% url 'projects' %}" class="hover:text-[#F37021]">Projects</a>
+        <a href="{% url 'services' %}" class="hover:text-[#F37021]">Services</a>
+        <a href="{% url 'about' %}" class="hover:text-[#F37021]">About</a>
+        <a href="{% url 'contact' %}" class="text-[#F37021]">Contact</a>
     </div>
-  </div>
-</nav>
 
-<div class="container">
-    {% block content %}
-    {% endblock %}
-</div>
+    <!-- Asosiy kontent -->
+    <main class="min-h-screen pt-20">
+        {% block content %}
+        {% endblock %}
+    </main>
 
-<script>
-  (function(){
-    emailjs.init("rjoht27d-yQLmtszb"); // Bu yerga EmailJS public key-ni yozasiz
-  })();
-</script>
+    <!-- Footer (Ixtiyoriy lekin muhim) -->
+    <footer class="py-10 border-t border-white/5 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Shukurulloh. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // EmailJS Init
+        (function(){
+            emailjs.init("rjoht27d-yQLmtszb");
+        })();
+
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+
+        menuToggle.addEventListener('click', () => {
+            mobileOverlay.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        });
+
+        // Overlay ichidagi link bosilganda menyu yopilishi
+        mobileOverlay.addEventListener('click', () => {
+            mobileOverlay.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        });
+    </script>
 </body>
 </html>

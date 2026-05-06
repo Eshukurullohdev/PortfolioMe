@@ -18,6 +18,8 @@ ALLOWED_HOSTS = [
     "9jdj0ssy.up.railway.app",
     "www.shukurullohdev.uz",
     "shukurullohdev.uz",
+    "127.0.0.1",
+    "localhost",
 ]
 
 

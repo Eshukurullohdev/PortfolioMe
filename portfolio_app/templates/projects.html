@@ -1,90 +1,158 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Blog</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog | Shukurulloh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #05070a; color: #e5e7eb; }
+        
+        .blog-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .blog-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: #1656ad;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(22, 86, 173, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .glass-nav {
+            background: rgba(5, 7, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #fff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tag {
+            background: rgba(243, 112, 33, 0.1);
+            color: #F37021;
+            border: 1px solid rgba(243, 112, 33, 0.2);
+        }
+    </style>
 </head>
-<body class="bg-black text-white">
+<body class="antialiased">
 
-  <!-- Header -->
- <nav class="bg-black text-white shadow-md p-4 flex justify-between items-center">
-  <div class="text-xl  font-bold">My Portfolio</div>
-   <ul class="hidden md:flex space-x-6 text-white">
-    <li><a href="{% url 'index' %}" class="hover:text-blue-600">Home</a></li>
-    <li><a href="{% url 'projects' %}" class="hover:text-blue-600">Projects</a></li>
-    <li><a href="{% url 'services' %}" class="hover:text-blue-600">Services</a></li>
-    <li><a href="{% url 'about' %}" class="hover:text-blue-600">About</a></li>
-    <li><a href="{% url 'contact' %}" class="hover:text-blue-600">Contact</a></li>
-  </ul>
-  <button id="menu-btn" class="md:hidden text-blue-600 focus:outline-none text-2xl">&#9776;</button>
-</nav>
+    <!-- Header -->
+    <nav class="fixed top-0 w-full glass-nav z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tighter text-white">
+                S<span class="text-[#F37021]">.</span>Blog
+            </div>
+            <ul class="hidden md:flex items-center space-x-8 text-xs font-bold tracking-widest uppercase">
+                <li><a href="{% url 'index' %}" class="hover:text-[#F37021] transition">Home</a></li>
+                <li><a href="{% url 'projects' %}" class="hover:text-[#F37021] transition">Projects</a></li>
+                <li><a href="{% url 'services' %}" class="hover:text-[#F37021] transition">Services</a></li>
+                <li><a href="{% url 'about' %}" class="hover:text-[#F37021] transition">About</a></li>
+                <li><a href="{% url 'contact' %}" class="px-5 py-2 border border-white/10 rounded-full hover:bg-white/5 transition">Contact</a></li>
+            </ul>
+            <button id="menu-btn" class="md:hidden text-white"><i class="fa-solid fa-bars text-xl"></i></button>
+        </div>
+    </nav>
 
-<ul id="mobile-menu" class="hidden bg-black shadow-md p-4 space-y-2 md:hidden">
-  <li><a href="{% url 'index' %}" class="block hover:text-blue-600">Home</a></li>
-  <li><a href="{% url 'projects' %}" class="block hover:text-blue-600">Projects</a></li>
-  <li><a href="{% url 'services' %}" class="block hover:text-blue-600">Services</a></li>
-  <li><a href="{% url 'about' %}" class="block hover:text-blue-600">About</a></li>
-  <li><a href="{% url 'contact' %}" class="block hover:text-blue-600">Contact</a></li>
-</ul>
-
-  <!-- Blog posts -->
-  <main class="container mx-auto px-4 py-12 space-y-8">
-
-    <!-- Post 1 -->
-    <div style="border: 1px solid blue;" class="bg-black p-6 rounded-lg shadow hover:shadow-lg transition">
-      <h2 class="text-2xl font-bold mb-2">How I Became a Full-stack Developer</h2>
-      <p class="text-white mb-4">
-        In this post, I share my journey on how I mastered HTML, CSS, JavaScript, Vue.js, Python, Django, REST API, PostgreSQL, and Tailwind CSS to become a professional full-stack developer.
-      </p>
-         <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline"><i class="fa-brands fa-github"></i> Git hub</a>
-
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 text-2xl font-bold">
+        <a href="{% url 'index' %}" class="hover:text-[#F37021]">Home</a>
+        <a href="{% url 'projects' %}" class="hover:text-[#F37021]">Projects</a>
+        <a href="{% url 'contact' %}" class="text-[#F37021]">Contact</a>
     </div>
 
-    <!-- Post 2 -->
-    <div style="border: 1px solid blue;" class="bg-black p-6 rounded-lg shadow hover:shadow-lg transition">
-      <h2 class="text-2xl font-bold mb-2">Building REST APIs with Django</h2>
-      <p class="text-white mb-4">
-        Django REST Framework makes building APIs very easy. In this article, I explain step by step how to create scalable and secure APIs using Django and DRF.
-      </p>
-      <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline"><i class="fa-brands fa-github"></i> Git hub</a>
+    <!-- Blog Section -->
+    <main class="max-w-5xl mx-auto px-6 pt-32 pb-20">
+        <header class="text-center mb-16 animate__animated animate__fadeIn">
+            <h2 class="text-[#F37021] font-bold tracking-widest text-xs uppercase mb-3">Maqolalar</h2>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">Texnologik Blog</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg">Tajribalarim, o'rganganlarim va dasturlash olamidagi yangiliklar haqida yozib boraman.</p>
+        </header>
 
-    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Post 1 -->
+            <article class="blog-card p-8 rounded-3xl animate__animated animate__fadeInUp">
+                <span class="tag px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Career Journey</span>
+                <h2 class="text-2xl font-bold text-white mt-4 mb-4 leading-tight hover:text-[#1656ad] transition">How I Became a Full-stack Developer</h2>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    HTML, Vue.js va Django orqali professional dasturchilikka bo'lgan yo'lim haqida batafsil...
+                </p>
+                <div class="flex items-center justify-between mt-auto">
+                    <a href="https://github.com/Eshukurullohdev" class="text-white hover:text-[#F37021] transition text-sm font-bold flex items-center gap-2">
+                        <i class="fa-brands fa-github text-lg"></i> GitHub
+                    </a>
+                    <span class="text-gray-600 text-xs italic">May 2026</span>
+                </div>
+            </article>
 
-    <!-- Post 3 -->
-    <div style="border: 1px solid blue;" class="bg-black p-6 rounded-lg shadow hover:shadow-lg transition">
-      <h2 class="text-2xl font-bold mb-2">Working with PostgreSQL Databases</h2>
-      <p class="text-white mb-4">
-        PostgreSQL is one of the most powerful relational database systems. Here I explain how to connect, design and optimize PostgreSQL databases for web applications.
-      </p>
-      <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline"><i class="fa-brands fa-github"></i> Git hub</a>
-    </div>
+            <!-- Post 2 -->
+            <article class="blog-card p-8 rounded-3xl animate__animated animate__fadeInUp animate__delay-1s">
+                <span class="tag px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Backend & API</span>
+                <h2 class="text-2xl font-bold text-white mt-4 mb-4 leading-tight hover:text-[#1656ad] transition">Building REST APIs with Django</h2>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Django REST Framework yordamida xavfsiz va tezkor API yaratish bo'yicha qo'llanma.
+                </p>
+                <div class="flex items-center justify-between">
+                    <a href="https://github.com/Eshukurullohdev" class="text-white hover:text-[#F37021] transition text-sm font-bold flex items-center gap-2">
+                        <i class="fa-brands fa-github text-lg"></i> GitHub
+                    </a>
+                    <span class="text-gray-600 text-xs italic">April 2026</span>
+                </div>
+            </article>
 
-    <!-- Post 4 -->
-    <div style="border: 1px solid blue;" class="bg-black p-6 rounded-lg shadow hover:shadow-lg transition">
-      <h2 class="text-2xl font-bold mb-2">Modern Web Design with Tailwind CSS</h2>
-      <p class="text-white mb-4">
-        Tailwind CSS allows developers to create beautiful, responsive designs quickly. I discuss some of my favorite Tailwind components and design patterns.
-      </p>
-           <a href="https://github.com/Eshukurullohdev" class="text-blue-600 font-semibold hover:underline"><i class="fa-brands fa-github"></i> Git hub</a>
+            <!-- Post 3 -->
+            <article class="blog-card p-8 rounded-3xl animate__animated animate__fadeInUp animate__delay-2s">
+                <span class="tag px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Databases</span>
+                <h2 class="text-2xl font-bold text-white mt-4 mb-4 leading-tight hover:text-[#1656ad] transition">Working with PostgreSQL</h2>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Ma'lumotlar bazasini loyihalash va uni veb-ilovalarga integratsiya qilishning eng samarali usullari.
+                </p>
+                <div class="flex items-center justify-between">
+                    <a href="https://github.com/Eshukurullohdev" class="text-white hover:text-[#F37021] transition text-sm font-bold flex items-center gap-2">
+                        <i class="fa-brands fa-github text-lg"></i> GitHub
+                    </a>
+                    <span class="text-gray-600 text-xs italic">March 2026</span>
+                </div>
+            </article>
 
-    </div>
+            <!-- Post 4 -->
+            <article class="blog-card p-8 rounded-3xl animate__animated animate__fadeInUp animate__delay-3s">
+                <span class="tag px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Frontend Design</span>
+                <h2 class="text-2xl font-bold text-white mt-4 mb-4 leading-tight hover:text-[#1656ad] transition">Modern Web Design with Tailwind</h2>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Tailwind CSS yordamida "vov" dedirtiradigan interfeyslarni qanday tezroq yig'ish mumkin?
+                </p>
+                <div class="flex items-center justify-between">
+                    <a href="https://github.com/Eshukurullohdev" class="text-white hover:text-[#F37021] transition text-sm font-bold flex items-center gap-2">
+                        <i class="fa-brands fa-github text-lg"></i> GitHub
+                    </a>
+                    <span class="text-gray-600 text-xs italic">Feb 2026</span>
+                </div>
+            </article>
+        </div>
+    </main>
 
-  </main>
+    <footer class="py-10 border-t border-white/5 text-center text-gray-600 text-sm">
+        <p>&copy; 2026 Shukurulloh. Barcha huquqlar himoyalangan.</p>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="bg-gray-200 text-center py-4 text-gray-600">
-    &copy; 2025 Your Shukurulloh. All rights reserved.
-  </footer>
-
-
-  <script>
-      const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-  </script>
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+        menu.addEventListener('click', () => menu.classList.add('hidden'));
+    </script>
 </body>
 </html>

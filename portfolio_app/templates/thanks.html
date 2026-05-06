@@ -1,18 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thank You</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-green-100 flex items-center justify-center min-h-screen">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Xabar yuborildi | Shukurulloh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #05070a; 
+            color: #e5e7eb;
+            overflow: hidden;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
 
-  <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg text-center">
-    <h2 class="text-2xl font-bold mb-6 text-green-600">Thank You!</h2>
-    <p>Your message has been sent successfully.</p>
-    <a href="/contact/" class="mt-4 inline-block bg-blue-600 text-white p-3 rounded hover:bg-blue-700">Back to Contact</a>
-  </div>
+        .success-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(22, 86, 173, 0.15) 0%, transparent 70%);
+        }
+
+        .check-icon {
+            background: linear-gradient(135deg, #1656ad 0%, #4086e0 100%);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen success-glow px-6">
+
+    <div class="glass-card max-w-md w-full p-10 rounded-[2.5rem] text-center animate__animated animate__zoomIn">
+        
+        <!-- Muvaffaqiyat belgisi -->
+        <div class="check-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg shadow-blue-900/40 animate__animated animate__bounceIn animate__delay-1s">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+
+        <h1 class="text-3xl font-extrabold text-white mb-4 tracking-tight">Rahmat!</h1>
+        
+        <p class="text-gray-400 text-lg leading-relaxed mb-10">
+            Xabaringiz muvaffaqiyatli yuborildi. Tezpada siz bilan bog'lanaman!
+        </p>
+
+        <div class="space-y-4">
+            <a href="{% url 'index' %}" class="block w-full bg-white/5 hover:bg-white/10 text-white border border-white/10 py-4 rounded-2xl font-bold transition-all duration-300">
+                Bosh sahifaga qaytish
+            </a>
+            
+            <p class="text-xs text-gray-600 uppercase tracking-[0.2em]">Shukurulloh • 2026</p>
+        </div>
+
+    </div>
+
+    <!-- Orqa fondagi bezak elementlari -->
+    <div class="fixed top-0 left-0 w-full h-full -z-10">
+        <div class="absolute top-[10%] left-[15%] w-64 h-64 bg-[#1656ad] rounded-full blur-[120px] opacity-20"></div>
+        <div class="absolute bottom-[10%] right-[15%] w-64 h-64 bg-[#F37021] rounded-full blur-[120px] opacity-10"></div>
+    </div>
 
 </body>
 </html>

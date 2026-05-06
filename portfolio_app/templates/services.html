@@ -1,49 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Services - Portfolio</title>
-<script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Services | Shukurulloh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome ikonkalari uchun -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #05070a; color: #e5e7eb; }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover {
+            border-color: #1656ad;
+            background: rgba(22, 86, 173, 0.05);
+            transform: translateY(-10px);
+        }
+
+        .icon-box {
+            background: linear-gradient(135deg, rgba(243, 112, 33, 0.1) 0%, rgba(22, 86, 173, 0.1) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-nav {
+            background: rgba(5, 7, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
 </head>
-<body class="bg-black text-white">
+<body class="antialiased">
 
-<nav class="bg-black shadow-md p-4 flex justify-between items-center">
-  <div class="text-xl font-bold">My Portfolio</div>
-   <ul class="hidden md:flex space-x-6 text-white">
-    <li><a href="{% url 'index' %}" class="hover:text-blue-600">Home</a></li>
-    <li><a href="{% url 'projects' %}" class="hover:text-blue-600">Projects</a></li>
-    <li><a href="{% url 'services' %}" class="hover:text-blue-600">Services</a></li>
-    <li><a href="{% url 'about' %}" class="hover:text-blue-600">About</a></li>
-    <li><a href="{% url 'contact' %}" class="hover:text-blue-600">Contact</a></li>
-  </ul>
-  <button id="menu-btn" class="md:hidden text-blue-600 focus:outline-none text-2xl">&#9776;</button>
-</nav>
+    <!-- Header -->
+    <nav class="fixed top-0 w-full glass-nav z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tighter text-white">
+                S<span class="text-[#F37021]">.</span>Services
+            </div>
+            <ul class="hidden md:flex items-center space-x-8 text-xs font-bold tracking-widest uppercase">
+                <li><a href="{% url 'index' %}" class="hover:text-[#F37021] transition">Home</a></li>
+                <li><a href="{% url 'projects' %}" class="hover:text-[#F37021] transition">Projects</a></li>
+                <li><a href="{% url 'services' %}" class="text-[#F37021]">Services</a></li>
+                <li><a href="{% url 'about' %}" class="hover:text-[#F37021] transition">About</a></li>
+                <li><a href="{% url 'contact' %}" class="px-5 py-2 border border-white/10 rounded-full hover:bg-white/5 transition">Contact</a></li>
+            </ul>
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none"><i class="fa-solid fa-bars text-xl"></i></button>
+        </div>
+    </nav>
 
-<ul id="mobile-menu" class="hidden bg-black shadow-md p-4 space-y-2 md:hidden">
-  <li><a href="{% url 'index' %}" class="block hover:text-blue-600">Home</a></li>
-  <li><a href="{% url 'projects' %}" class="block hover:text-blue-600">Projects</a></li>
-  <li><a href="{% url 'services' %}" class="block hover:text-blue-600">Services</a></li>
-  <li><a href="{% url 'about' %}" class="block hover:text-blue-600">About</a></li>
-  <li><a href="{% url 'contact' %}" class="block hover:text-blue-600">Contact</a></li>
-</ul>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 text-2xl font-bold animate__animated animate__fadeIn">
+        <a href="{% url 'index' %}" class="hover:text-[#F37021]">Home</a>
+        <a href="{% url 'projects' %}" class="hover:text-[#F37021]">Projects</a>
+        <a href="{% url 'services' %}" class="text-[#F37021]">Services</a>
+        <a href="{% url 'contact' %}" class="hover:text-[#F37021]">Contact</a>
+    </div>
 
-<main class="container mx-auto px-6 py-12">
-  <h2 class="text-3xl font-bold mb-8 text-center">Services I Offer</h2>
-  <ul class="max-w-xl mx-auto space-y-4 text-white text-lg">
-    <li>Frontend and Backend Development</li>
-    <li>REST API Creation</li>
-    <li>Database Design and Optimization</li>
-    <li>Responsive UI Design with Tailwind CSS</li>
-    <li>Full Integration of Vue.js with Django REST API</li>
-  </ul>
-</main>
+    <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
+        <header class="text-center mb-20 animate__animated animate__fadeIn">
+            <h2 class="text-[#F37021] font-bold tracking-widest text-xs uppercase mb-3">Nima qila olaman?</h2>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6">Mening Xizmatlarim</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                Men zamonaviy texnologiyalar yordamida biznesingizni raqamli dunyoda rivojlantirishga yordam beraman.
+            </p>
+        </header>
 
-<script>
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-</script>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Xizmat 1 -->
+            <div class="service-card p-8 rounded-3xl animate__animated animate__zoomIn">
+                <div class="icon-box w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-[#F37021] text-2xl">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Full-Stack Development</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Vue.js va Django yordamida loyihani noldan boshlab to'liq ishchi holatiga keltirish.
+                </p>
+            </div>
 
+            <!-- Xizmat 2 -->
+            <div class="service-card p-8 rounded-3xl animate__animated animate__zoomIn animate__delay-1s">
+                <div class="icon-box w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-[#1656ad] text-2xl">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">REST API Integration</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Xavfsiz, tezkor va professional API interfeyslarini yaratish va boshqa servislar bilan bog'lash.
+                </p>
+            </div>
+
+            <!-- Xizmat 3 -->
+            <div class="service-card p-8 rounded-3xl animate__animated animate__zoomIn animate__delay-2s">
+                <div class="icon-box w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-[#F37021] text-2xl">
+                    <i class="fa-solid fa-database"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Database Design</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    PostgreSQL bazasini loyihalash va ma'lumotlar oqimini maksimal darajada optimallashtirish.
+                </p>
+            </div>
+
+            <!-- Xizmat 4 -->
+            <div class="service-card p-8 rounded-3xl animate__animated animate__zoomIn animate__delay-3s">
+                <div class="icon-box w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-[#1656ad] text-2xl">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Responsive UI/UX</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Tailwind CSS yordamida barcha qurilmalar (telefon, planshet, kompyuter) uchun mukammal dizayn.
+                </p>
+            </div>
+
+            <!-- Xizmat 5 -->
+            <div class="service-card p-8 rounded-3xl animate__animated animate__zoomIn animate__delay-4s">
+                <div class="icon-box w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-[#F37021] text-2xl">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Speed Optimization</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Veb-saytlarni yuklanish tezligini oshirish va kodni eng oxirgi standartlar asosida tozalash.
+                </p>
+            </div>
+
+            <!-- Xizmat 6 (Qo'shimcha) -->
+            <div class="service-card p-8 rounded-3xl animate__animated animate__zoomIn animate__delay-5s">
+                <div class="icon-box w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-[#1656ad] text-2xl">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Support & Maintenance</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Yaratilgan loyihalarni doimiy nazorat qilish va yangi funksiyalar qo'shib borish.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-10 border-t border-white/5 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Shukurulloh. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        menu.addEventListener('click', () => menu.classList.add('hidden'));
+    </script>
 </body>
 </html>
